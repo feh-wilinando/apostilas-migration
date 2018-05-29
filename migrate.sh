@@ -3,7 +3,7 @@
 
 workdir=$(pwd)
 
-usuario=caelum
+base_url='https://gitlab.com/aovs/apostilas'
 find ../apostilas-novas -path "*" -type d -depth 1  > diretorios_completos.txt
 
 while read -r dir
@@ -29,7 +29,7 @@ do
 		git prune
 		git remote rm origin
 
-		git remote add origin https://gitlab.com/$usuario/$current.git
+		git push -u  $base_url/$current.git master
 
 		cd $workdir
 	
